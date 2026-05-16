@@ -410,5 +410,285 @@
     .ch-mentor { flex:1; min-width:140px; padding:1.5rem; border:1px solid; text-align:center; transition: all .35s; }
     #ch-earth .ch-mentor { border-color: rgba(74,122,61,.18); }
     #ch-earth .ch-mentor:hover { background: rgba(74,122,61,.07); }
-    #ch-void  .ch-mentor { border-color: rgba(123,94,167,.18); }
-    #ch-void  .ch-
+    #ch-void .ch-mentor { border-color: rgba(123,94,167,.18); background: rgba(8,6,19,0.4); padding: 2rem; border-radius: 8px; text-align: center; }
+      </style>
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <section id="apex">
+    <canvas id="fol-canvas-apex"></canvas>
+    <div class="apex-eye" dr>
+      <div class="line"></div>
+      <span>System Initialization</span>
+    </div>
+    <h1 class="apex-h1 serif" dr>
+      The Architecture of <em>Harmonic</em> Convergence
+    </h1>
+    <div class="apex-body" dr>
+      Welcome to the central portal of Manwa Mincha. A living intellectual and energetic landscape designed to bridge multi-dimensional frequency dynamics with biological independence.
+    </div>
+    <div class="apex-stats" dr>
+      <div class="apex-stat">
+        <span class="stat-lbl mono">Frequency Core</span>
+        <span class="stat-val serif">33 // 6</span>
+      </div>
+      <div class="apex-stat">
+        <span class="stat-lbl mono">Geometry</span>
+        <span class="stat-val serif">Phi &Delta;</span>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <span>Descend</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="synthesis">
+    <div class="syn-wrap">
+      <div>
+        <p class="syn-lbl mono">The Synthesis Paradigm</p>
+        <h2 class="syn-h2 serif">Unifying the <em>Inner</em> and <em>Outer</em> Realms</h2>
+      </div>
+      <div class="syn-list">
+        <div class="syn-item" dr>
+          <span class="syn-num mono">01</span>
+          <div>
+            <h4>Bio-Sovereignty</h4>
+            <p>Decentralized industrial design, hybrid energy systems, and absolute biological self-reliance.</p>
+          </div>
+        </div>
+        <div class="syn-item" dr>
+          <span class="syn-num mono">02</span>
+          <div>
+            <h4>Metaphysical Science</h4>
+            <p>Exploring human interconnectedness, higher consciousness development, and planetary frequency grids.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fork">
+    <div class="fork-hd">
+      <span class="fork-eye">The Threshold</span>
+      <h2 class="fork-h2 serif">Select Your <em>Chamber</em></h2>
+      <p class="fork-sub mono">Choose a path of illumination</p>
+    </div>
+
+    <div class="fork-panels">
+      <div class="fork-div"></div>
+      
+      <div class="fp fp-earth" id="panel-earth">
+        <div class="etag"><div class="etag-dot"></div><span>Outer Alchemy</span></div>
+        <h3 class="fp-title serif">The Lab</h3>
+        <p class="fp-sub mono">Bio-Sovereign Architecture</p>
+        <p class="fp-body">Constructing localized industrial hubs, advanced bio-solar arrays, and decentralized agricultural networks designed for physical self-reliance.</p>
+        <div class="fp-quote serif">"True independence begins with the mastery of biological systems."</div>
+        <button class="portal-btn" id="btn-open-earth">
+          <span>Enter The Lab</span><span class="arr">&rarr;</span>
+        </button>
+      </div>
+
+      <div class="fp fp-void" id="panel-void">
+        <div class="etag"><div class="etag-dot"></div><span>Inner Alchemy</span></div>
+        <h3 class="fp-title serif">The Sanctuary</h3>
+        <p class="fp-sub mono">Wellness Interface</p>
+        <p class="fp-body">Navigating multi-dimensional frequency grids, consciousness calibration, and the profound historical echoes of ancient human civilizations.</p>
+        <div class="fp-quote serif">"The physical container must vibrate in perfect resonance with cosmic geometry."</div>
+        <button class="portal-btn" id="btn-open-void">
+          <span>Enter The Sanctuary</span><span class="arr">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="chamber" id="ch-earth">
+    <div class="ch-bg-grad"></div>
+    <div class="ch-bg-grid"></div>
+    <button class="ascend" id="btn-close-earth">
+      <div class="sun-ring"><span>&uarr;</span></div>
+      <span class="ascend-lbl mono">Ascend to Apex</span>
+    </button>
+    
+    <div class="ch-scroll ch-body">
+      <div class="ch-eye">Laboratory Matrix</div>
+      <h2 class="ch-h2 serif">Bio-Sovereign <em>Engineering</em></h2>
+      <p class="ch-intro">The blueprints of absolute tangible autonomy. Here we unify advanced thermal, biological, and solar systems to decentralize essential resources and build local systems that stand completely sovereign.</p>
+      
+      <div class="ch-grid">
+        <div class="ch-card">
+          <span class="cc-num mono">Hub // 01</span>
+          <h4 class="cc-h4 serif">Bio-Solar Arrays</h4>
+          <p class="cc-p">Developing high-efficiency hybrid structures that unify solar collection with localized biomass conversion units.</p>
+        </div>
+        <div class="ch-card">
+          <span class="cc-num mono">Hub // 02</span>
+          <h4 class="cc-h4 serif">Agricultural Grids</h4>
+          <p class="cc-p">Automated, self-healing closed-loop farming networks that decentralize food production mechanics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chamber" id="ch-void">
+    <div class="ch-bg-grad"></div>
+    <canvas id="stars-canvas"></canvas>
+    <button class="ascend" id="btn-close-void">
+      <div class="sun-ring"><span>&uarr;</span></div>
+      <span class="ascend-lbl mono">Ascend to Apex</span>
+    </button>
+
+    <div class="ch-scroll ch-body">
+      <div class="ch-eye">Sanctuary Frequency</div>
+      <h2 class="ch-h2 serif">The Metaphysical <em>Grid</em></h2>
+      <p class="ch-intro">Calibrating internal frequencies. Exploring the architecture of human energy matrices, numeric patterns, and tracking the historical alignments of ancestral lineages.</p>
+      
+      <div class="ch-grid">
+        <div class="ch-card">
+          <span class="cc-num mono">Freq // 33</span>
+          <h4 class="cc-h4 serif">Consciousness Expansion</h4>
+          <p class="cc-p">Analyzing how focused thought fields and structural intent shift physical matter and local space conditions.</p>
+        </div>
+        <div class="ch-card" id="ch-void-mentor-card">
+          <span class="cc-num mono">Origin // Void</span>
+          <h4 class="cc-h4 serif">Lemurian Lineages</h4>
+          <p class="cc-p">Tracing historical blueprints of advanced civilizations that understood unified harmonic design properties.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Dynamic Cursor Engine
+    const cur = document.getElementById('cur');
+    const curRing = document.getElementById('cur-ring');
+    
+    document.addEventListener('mousemove', (e) => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top = e.clientY + 'px';
+      
+      curRing.style.left = e.clientX + 'px';
+      curRing.style.top = e.clientY + 'px';
+    });
+
+    const setCursorContext = (addBodyClass) => {
+      document.body.className = addBodyClass;
+    };
+
+    document.getElementById('panel-earth').addEventListener('mouseenter', () => setCursorContext('c-earth'));
+    document.getElementById('panel-void').addEventListener('mouseenter', () => setCursorContext('c-void'));
+    document.querySelectorAll('button, a, .ch-card').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('c-big'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('c-big'));
+    });
+    document.getElementById('fork').addEventListener('mouseleave', () => setCursorContext(''));
+
+    // 2. Intersectional Reveal System
+    const reveals = document.querySelectorAll('[dr]');
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('on');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => revObs.observe(r));
+
+    // 3. Flower of Life Mathematical Renderer
+    const drawFOL = (canvasId, strokeColor) => {
+      const canvas = document.getElementById(canvasId);
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const res = 500;
+      canvas.width = res;
+      canvas.height = res;
+      
+      const r = 40; 
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = 0.5;
+      ctx.globalAlpha = 0.4;
+
+      const drawCircle = (x, y) => {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.stroke();
+      };
+
+      const cx = res / 2;
+      const cy = res / 2;
+
+      for (let i = -4; i <= 4; i++) {
+        for (let j = -4; j <= 4; j++) {
+          const x = cx + i * r * Math.sqrt(3) + (j % 2 === 0 ? 0 : (r * Math.sqrt(3))/2);
+          const y = cy + j * r * 1.5;
+          drawCircle(x, y);
+        }
+      }
+    };
+    drawFOL('fol-canvas-apex', '#AF9164');
+
+    // 4. Cosmological Void Starfield Generator
+    const buildStars = () => {
+      const canvas = document.getElementById('stars-canvas');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const stars = [];
+      for(let i=0; i<120; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.2,
+          alpha: Math.random()
+        });
+      }
+      
+      const anim = () => {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        stars.forEach(s => {
+          s.alpha += (Math.random() - 0.5) * 0.04;
+          if(s.alpha < 0) s.alpha = 0;
+          if(s.alpha > 1) s.alpha = 1;
+          ctx.fillStyle = `rgba(184, 168, 212, ${s.alpha})`;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+          ctx.fill();
+        });
+        requestAnimationFrame(anim);
+      };
+      anim();
+    };
+    buildStars();
+    window.addEventListener('resize', buildStars);
+
+    // 5. Portal Navigation Core
+    const setupPortal = (btnOpen, btnClose, chamberId) => {
+      const chamber = document.getElementById(chamberId);
+      const openBtn = document.getElementById(btnOpen);
+      const closeBtn = document.getElementById(btnClose);
+
+      openBtn.addEventListener('click', () => {
+        chamber.classList.add('open');
+        document.body.classList.add('chamber-open');
+        setTimeout(() => closeBtn.classList.add('show'), 600);
+      });
+
+      closeBtn.addEventListener('click', () => {
+        chamber.classList.remove('open');
+        closeBtn.classList.remove('show');
+        document.body.classList.remove('chamber-open');
+      });
+    };
+
+    setupPortal('btn-open-earth', 'btn-close-earth', 'ch-earth');
+    setupPortal('btn-open-void', 'btn-close-void', 'ch-void');
+  </script>
+</body>
+</html>
+  
+    
