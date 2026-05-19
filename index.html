@@ -410,285 +410,696 @@
     .ch-mentor { flex:1; min-width:140px; padding:1.5rem; border:1px solid; text-align:center; transition: all .35s; }
     #ch-earth .ch-mentor { border-color: rgba(74,122,61,.18); }
     #ch-earth .ch-mentor:hover { background: rgba(74,122,61,.07); }
-    #ch-void .ch-mentor { border-color: rgba(123,94,167,.18); background: rgba(8,6,19,0.4); padding: 2rem; border-radius: 8px; text-align: center; }
-      </style>
+    #ch-void  .ch-mentor { border-color: rgba(123,94,167,.18); }
+    #ch-void  .ch-mentor:hover { background: rgba(123,94,167,.07); }
+    .cm-name { font-size: 1.3rem; font-weight: 400; margin-bottom: .3rem; }
+    #ch-earth .cm-name { color: #E5EFE3; }
+    #ch-void  .cm-name { color: var(--iridescent); }
+    .cm-role { font-size: .54rem; letter-spacing: .15em; text-transform: uppercase; }
+    #ch-earth .cm-role { color: rgba(125,184,122,.48); }
+    #ch-void  .cm-role { color: rgba(184,168,212,.48); }
+
+    /* Frequency display inside chambers */
+    .hz-badge {
+      display: inline-flex; align-items: center; gap: .75rem;
+      padding: .6rem 1.2rem; border: 1px solid;
+      font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+      margin-bottom: 3rem; animation: hzblink 1.566s ease-in-out infinite;
+    }
+    #ch-earth .hz-badge { border-color: rgba(74,122,61,.3); color: var(--earth-glow); }
+    #ch-void  .hz-badge { border-color: rgba(123,94,167,.3); color: var(--crystal); }
+    @keyframes hzblink {
+      0%,100%{ opacity:.6; } 50%{ opacity:1; }
+    }
+    .hz-dot { width:.5rem; height:.5rem; border-radius:50%; animation: hzdot 1.566s ease-in-out infinite; }
+    #ch-earth .hz-dot { background: var(--earth-glow); }
+    #ch-void  .hz-dot { background: var(--crystal); }
+    @keyframes hzdot {
+      0%,100%{ transform:scale(1); } 50%{ transform:scale(1.5); }
+    }
+
+    .ch-cta { display: inline-flex; align-items: center; gap: 1rem; padding: 1.1rem 2.5rem; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; cursor: none; transition: all .35s; border: 1px solid; }
+    #ch-earth .ch-cta { background: var(--earth-acc); border-color: var(--earth-acc); color: #E5EFE3; }
+    #ch-earth .ch-cta:hover { background: var(--earth-glow); border-color: var(--earth-glow); color: var(--earth-deep); }
+    #ch-void  .ch-cta { background: var(--violet); border-color: var(--violet); color: var(--iridescent); }
+    #ch-void  .ch-cta:hover { background: var(--crystal); border-color: var(--crystal); color: var(--void-deep); }
+
+    /* ══ IV. CONVERGENCE ══════════════════════════════════════════════════════ */
+    #conv {
+      background: var(--commons); padding: 10rem 6vw 8rem;
+      position: relative; overflow: hidden;
+    }
+    #conv::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 28% 50%, rgba(74,122,61,.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 72% 50%, rgba(123,94,167,.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(175,145,100,.04) 0%, transparent 36%);
+      pointer-events: none;
+    }
+    .conv-in { max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+    .conv-eye { display: block; font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+    .vesica-wrap { margin: 0 auto 5rem; width: min(520px,85vw); }
+    .conv-h2 { font-size: clamp(2.4rem,6vw,5rem); font-weight: 300; color: var(--parch); letter-spacing: -.022em; line-height: 1.04; margin-bottom: 2.5rem; }
+    .conv-h2 em { font-style: italic; color: var(--gold); }
+    .conv-p { font-size: .95rem; line-height: 1.95; color: rgba(246,243,238,.4); max-width: 52ch; margin: 0 auto 4.5rem; }
+
+    .axioms { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(175,145,100,.12); border: 1px solid rgba(175,145,100,.12); margin-bottom: 5rem; text-align: left; }
+    @media(max-width:768px){ .axioms { grid-template-columns: 1fr; } }
+    .axiom { padding: 2.5rem 2rem; background: var(--commons); }
+    .ax-num { display: block; font-size: .55rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .axiom h4 { font-size: 1.35rem; font-weight: 400; color: var(--parch); margin-bottom: .6rem; line-height: 1.2; }
+    .axiom p { font-size: .78rem; line-height: 1.78; color: rgba(246,243,238,.36); }
+
+    .join-btn { display: inline-flex; align-items: center; gap: 1.25rem; padding: 1.2rem 3rem; background: var(--gold); color: var(--ink); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; transition: all .4s; cursor: none; border: 1px solid var(--gold); }
+    .join-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* ══ V. FOOTER ═══════════════════════════════════════════════════════════ */
+    footer { background: var(--ink); color: var(--parch); padding: 5rem 6vw 3rem; border-top: 1px solid rgba(175,145,100,.1); }
+    .ft-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: start; padding-bottom: 4rem; border-bottom: 1px solid rgba(246,243,238,.05); margin-bottom: 3rem; }
+    @media(max-width:640px){ .ft-grid { grid-template-columns: 1fr; } }
+    .ft-brand { font-size: 2rem; font-style: italic; font-weight: 300; margin-bottom: .75rem; }
+    .ft-tag   { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(246,243,238,.2); }
+    .ft-links { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; }
+    .ft-links a { font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(246,243,238,.32); text-decoration: none; transition: color .3s; }
+    .ft-links a:hover { color: var(--gold); }
+    .ft-bottom { text-align: center; max-width: 1200px; margin: 0 auto; font-size: .52rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(246,243,238,.1); }
+
+    /* ══ RESPONSIVE ═══════════════════════════════════════════════════════════ */
+    @media(max-width:768px){
+      #apex         { padding: 6rem 1.5rem 5rem; }
+      #synthesis    { padding: 5rem 1.5rem; }
+      .fork-hd      { padding: 5rem 1.5rem 3.5rem; }
+      .fp           { padding: 4rem 1.5rem; }
+      #conv         { padding: 6rem 1.5rem 5rem; }
+      footer        { padding: 4rem 1.5rem 2.5rem; }
+      .ch-scroll    { padding: 7rem 1.5rem 5rem; }
+      #fol-canvas-apex { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <div id="cur"></div>
-  <div id="cur-ring"></div>
+<div id="cur"></div>
+<div id="cur-ring"></div>
 
+<!-- ══════════════════════════════════════════
+     CHAMBER — BIO-SOVEREIGN (EARTH)
+══════════════════════════════════════════ -->
+<div id="ch-earth" class="chamber" role="dialog" aria-modal="true" aria-label="Bio-Sovereign Chamber">
+
+  <button class="ascend" id="asc-earth" aria-label="Return to Pyramid">
+    <div class="sun-ring">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="5.5" stroke="#7DB87A" stroke-width=".9"/>
+        <line x1="13" y1="1.5"  x2="13" y2="4.5"  stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="13" y1="21.5" x2="13" y2="24.5" stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="1.5" y1="13"  x2="4.5" y2="13"  stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="21.5" y1="13" x2="24.5" y2="13" stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="5"  y1="5"   x2="7"  y2="7"   stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="19" y1="19"  x2="21" y2="21"  stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="21" y1="5"   x2="19" y2="7"   stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="7"  y1="19"  x2="5"  y2="21"  stroke="#7DB87A" stroke-width=".9" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="ascend-lbl mono">Ascend</span>
+  </button>
+
+  <div class="ch-bg-grad"></div>
+  <div class="ch-bg-grid"></div>
+  <div class="ch-fol-bg"><canvas id="fol-ch-earth" width="700" height="700"></canvas></div>
+
+  <div class="ch-scroll ch-body">
+    <div class="ch-eye mono">🌍 Earth · The Outer Work · The Village</div>
+    <h2 class="ch-h2 serif">Bio-<em>Sovereign</em></h2>
+    <div class="hz-badge mono"><span class="hz-dot"></span>639 Hz · Connection · Bridges · Community</div>
+    <p class="ch-intro">
+      Where the alchemized individual returns to the land. This chamber is the decentralized hub for agricultural innovation, clean energy systems, and communal infrastructure — the physical architecture of a new humanity built from sovereign hands.
+    </p>
+    <div class="ch-grid">
+      <div class="ch-card">
+        <span class="cc-num mono">Node 01</span>
+        <h4 class="cc-h4 serif">Regenerative Agriculture</h4>
+        <p class="cc-p">Organic bio-fertilizer systems and soil healing protocols. The land as living organism, not extraction resource.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Node 02</span>
+        <h4 class="cc-h4 serif">Decentralized Energy</h4>
+        <p class="cc-p">Bioenergy and solar-thermal PV integrated into community microgrids. Power as a sovereign right, not a utility bill.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Node 03</span>
+        <h4 class="cc-h4 serif">Circular Bio-Economy</h4>
+        <p class="cc-p">Waste-to-resource systems closing the loop between food, energy, and material production. Nothing is discarded.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Node 04</span>
+        <h4 class="cc-h4 serif">Communal Sovereignty</h4>
+        <p class="cc-p">Open-source blueprints, peer-to-peer knowledge transfer, and collaborative project design across the network.</p>
+      </div>
+    </div>
+    <p style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(125,184,122,.38);margin-bottom:1.5rem;" class="mono">Archetype Mentors</p>
+    <div class="ch-mentors">
+      <div class="ch-mentor"><div class="cm-name serif">Tesla</div><div class="cm-role mono">Energy · Systems · Vibration</div></div>
+      <div class="ch-mentor"><div class="cm-name serif">Gandhi</div><div class="cm-role mono">Diplomacy · Service · Community</div></div>
+    </div>
+    <button class="ch-cta mono"><span>Join the Laboratory</span><span class="arr">→</span></button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CHAMBER — WELLNESS INTERFACE (VOID)
+══════════════════════════════════════════ -->
+<div id="ch-void" class="chamber" role="dialog" aria-modal="true" aria-label="Wellness Chamber">
+
+  <button class="ascend" id="asc-void" aria-label="Return to Pyramid">
+    <div class="sun-ring">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="5.5" stroke="#B8A8D4" stroke-width=".9"/>
+        <line x1="13" y1="1.5"  x2="13" y2="4.5"  stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="13" y1="21.5" x2="13" y2="24.5" stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="1.5" y1="13"  x2="4.5" y2="13"  stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="21.5" y1="13" x2="24.5" y2="13" stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="5"  y1="5"   x2="7"  y2="7"   stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="19" y1="19"  x2="21" y2="21"  stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="21" y1="5"   x2="19" y2="7"   stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+        <line x1="7"  y1="19"  x2="5"  y2="21"  stroke="#B8A8D4" stroke-width=".9" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="ascend-lbl mono">Ascend</span>
+  </button>
+
+  <div class="ch-bg-grad"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="ch-fol-bg"><canvas id="fol-ch-void" width="700" height="700"></canvas></div>
+
+  <div class="ch-scroll ch-body">
+    <div class="ch-eye mono">🔥🌊 Fire · Water · The Inner Work</div>
+    <h2 class="ch-h2 serif">Wellness <em>Interface</em></h2>
+    <div class="hz-badge mono"><span class="hz-dot"></span>639 Hz · Healing · Heart · Reconnection</div>
+    <p class="ch-intro">
+      The personal sanctuary. Before you can engineer the world, you must calibrate the instrument — your body, your frequency, your heart. This chamber holds guided transmissions, solfeggio activations, and the Lemurian protocols for sovereign biological vitality.
+    </p>
+    <div class="ch-grid">
+      <div class="ch-card">
+        <span class="cc-num mono">Rite 01</span>
+        <h4 class="cc-h4 serif">Frequency Calibration</h4>
+        <p class="cc-p">432Hz guided audio journeys and solfeggio activation sequences tuned to the body's crystalline water matrix.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Rite 02</span>
+        <h4 class="cc-h4 serif">The Lemurian Protocols</h4>
+        <p class="cc-p">Ancient somatic practices — breath, intention, movement — translated into daily 33-day alchemical paths.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Rite 03</span>
+        <h4 class="cc-h4 serif">Heart Coherence Training</h4>
+        <p class="cc-p">The heart as primary oscillator. Practices that entrain the electromagnetic field of the heart into coherent, generative output.</p>
+      </div>
+      <div class="ch-card">
+        <span class="cc-num mono">Rite 04</span>
+        <h4 class="cc-h4 serif">Personal Alchemy Dashboard</h4>
+        <p class="cc-p">Your birth mandala, astrological seed, and archetype path rendered as a living, evolving map of your becoming.</p>
+      </div>
+    </div>
+    <p style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(184,168,212,.36);margin-bottom:1.5rem;" class="mono">Archetype Mentors</p>
+    <div class="ch-mentors">
+      <div class="ch-mentor"><div class="cm-name serif">Jesus</div><div class="cm-role mono">Heart · Unconditional Love · Depth</div></div>
+      <div class="ch-mentor"><div class="cm-name serif">Da Vinci</div><div class="cm-role mono">Proportion · Creativity · Sacred Form</div></div>
+    </div>
+    <button class="ch-cta mono"><span>Enter the Sanctuary</span><span class="arr">→</span></button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN PYRAMID
+══════════════════════════════════════════ -->
+<div id="pyramid">
+
+  <!-- I. APEX -->
   <section id="apex">
-    <canvas id="fol-canvas-apex"></canvas>
-    <div class="apex-eye" dr>
+    <canvas id="fol-canvas-apex" aria-hidden="true"></canvas>
+
+    <div class="apex-eye mono" dr>
       <div class="line"></div>
-      <span>System Initialization</span>
+      <span>🌬️ Air · Knowledge · Transmission · The Medium Itself</span>
     </div>
+
     <h1 class="apex-h1 serif" dr>
-      The Architecture of <em>Harmonic</em> Convergence
+      The <em>Harmonic</em><br>Convergence
     </h1>
-    <div class="apex-body" dr>
-      Welcome to the central portal of Manwa Mincha. A living intellectual and energetic landscape designed to bridge multi-dimensional frequency dynamics with biological independence.
-    </div>
+
+    <p class="apex-body" dr>
+      A living digital ecosystem where the Engineer and the Mystic are revealed as one. Built on the ancient knowing that the physical world and the spiritual world are not opposites — they are octaves of the same frequency.
+    </p>
+
     <div class="apex-stats" dr>
       <div class="apex-stat">
-        <span class="stat-lbl mono">Frequency Core</span>
-        <span class="stat-val serif">33 // 6</span>
+        <span class="stat-lbl mono">Life Path</span>
+        <span class="stat-val serif">33</span>
       </div>
       <div class="apex-stat">
-        <span class="stat-lbl mono">Geometry</span>
-        <span class="stat-val serif">Phi &Delta;</span>
+        <span class="stat-lbl mono">Frequency</span>
+        <span class="stat-val serif">432<span style="font-size:.9rem">Hz</span></span>
+      </div>
+      <div class="apex-stat">
+        <span class="stat-lbl mono">Trademark</span>
+        <span class="stat-val serif" style="font-size:1.1rem;font-style:italic">Artful Balance</span>
+      </div>
+      <div class="apex-stat">
+        <span class="stat-lbl mono">Vision</span>
+        <span class="stat-val serif" style="font-size:1rem">10,000+</span>
       </div>
     </div>
-    <div class="scroll-cue">
-      <span>Descend</span>
+
+    <div class="scroll-cue mono" aria-hidden="true">
       <div class="scroll-line"></div>
+      <span>Descend</span>
     </div>
   </section>
 
+  <!-- II. SYNTHESIS -->
   <section id="synthesis">
     <div class="syn-wrap">
       <div>
-        <p class="syn-lbl mono">The Synthesis Paradigm</p>
-        <h2 class="syn-h2 serif">Unifying the <em>Inner</em> and <em>Outer</em> Realms</h2>
+        <p class="syn-lbl mono" dr>The Manwa Mincha Synthesis</p>
+        <h2 class="syn-h2 serif" dr>Inner Alchemy<br>meets <em>Outer Architecture.</em></h2>
       </div>
       <div class="syn-list">
         <div class="syn-item" dr>
-          <span class="syn-num mono">01</span>
-          <div>
-            <h4>Bio-Sovereignty</h4>
-            <p>Decentralized industrial design, hybrid energy systems, and absolute biological self-reliance.</p>
-          </div>
+          <span class="syn-num mono">I</span>
+          <div><h4 class="serif">Energy, Frequency & Vibration</h4><p>The foundational reality beneath all matter, all health, all human systems.</p></div>
         </div>
         <div class="syn-item" dr>
-          <span class="syn-num mono">02</span>
-          <div>
-            <h4>Metaphysical Science</h4>
-            <p>Exploring human interconnectedness, higher consciousness development, and planetary frequency grids.</p>
-          </div>
+          <span class="syn-num mono">II</span>
+          <div><h4 class="serif">The Human Body as Transducer</h4><p>Receiver, synthesizer, and broadcaster of quantum field intelligence.</p></div>
+        </div>
+        <div class="syn-item" dr>
+          <span class="syn-num mono">III</span>
+          <div><h4 class="serif">Universal Laws as Architecture</h4><p>Not metaphor — operational protocols that govern all living systems.</p></div>
+        </div>
+        <div class="syn-item" dr>
+          <span class="syn-num mono">IV</span>
+          <div><h4 class="serif">Sovereignty of Self & Systems</h4><p>The individual healed becomes the community empowered becomes the planet restored.</p></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- III. FORK -->
   <section id="fork">
     <div class="fork-hd">
-      <span class="fork-eye">The Threshold</span>
-      <h2 class="fork-h2 serif">Select Your <em>Chamber</em></h2>
-      <p class="fork-sub mono">Choose a path of illumination</p>
+      <span class="fork-eye mono" dr>The Portal of Choice · The Act of Sovereignty</span>
+      <h2 class="fork-h2 serif" dr>Choose your<br><em>Chamber of Initiation</em></h2>
+      <p class="fork-sub mono" dr>Both paths lead to the same truth. Choose where you are called.</p>
     </div>
 
     <div class="fork-panels">
-      <div class="fork-div"></div>
-      
-      <div class="fp fp-earth" id="panel-earth">
-        <div class="etag"><div class="etag-dot"></div><span>Outer Alchemy</span></div>
-        <h3 class="fp-title serif">The Lab</h3>
-        <p class="fp-sub mono">Bio-Sovereign Architecture</p>
-        <p class="fp-body">Constructing localized industrial hubs, advanced bio-solar arrays, and decentralized agricultural networks designed for physical self-reliance.</p>
-        <div class="fp-quote serif">"True independence begins with the mastery of biological systems."</div>
-        <button class="portal-btn" id="btn-open-earth">
-          <span>Enter The Lab</span><span class="arr">&rarr;</span>
-        </button>
+      <div class="fork-div" aria-hidden="true"></div>
+
+      <!-- EARTH -->
+      <div class="fp fp-earth">
+        <canvas class="fp-fol" id="fol-fork-earth" width="460" height="460" aria-hidden="true"></canvas>
+        <div class="etag mono" dr><span class="etag-dot"></span>🌍 Earth · Foundation · The Outer Work</div>
+        <h3 class="fp-title serif" dr>Bio-Sovereign</h3>
+        <p class="fp-sub mono" dr>Gandhi · Tesla · The Village · The Laboratory</p>
+        <p class="fp-body" dr>The macro application. The decentralized hub where agricultural systems, renewable energy, and communal infrastructure are designed, built, and shared. This is where transformed individuals engineer a new physical world.</p>
+        <div class="fp-quote serif" dr>"Enter the Lab. Engineer the physical foundations of a new humanity."</div>
+        <p class="fp-focus mono" dr>Focus: Food · Energy · Communal Sovereignty</p>
+        <button class="portal-btn mono" id="btn-earth" dr aria-haspopup="dialog"><span>Enter the Lab</span><span class="arr">→</span></button>
       </div>
 
-      <div class="fp fp-void" id="panel-void">
-        <div class="etag"><div class="etag-dot"></div><span>Inner Alchemy</span></div>
-        <h3 class="fp-title serif">The Sanctuary</h3>
-        <p class="fp-sub mono">Wellness Interface</p>
-        <p class="fp-body">Navigating multi-dimensional frequency grids, consciousness calibration, and the profound historical echoes of ancient human civilizations.</p>
-        <div class="fp-quote serif">"The physical container must vibrate in perfect resonance with cosmic geometry."</div>
-        <button class="portal-btn" id="btn-open-void">
-          <span>Enter The Sanctuary</span><span class="arr">&rarr;</span>
-        </button>
+      <!-- VOID -->
+      <div class="fp fp-void">
+        <canvas class="fp-fol" id="fol-fork-void" width="460" height="460" aria-hidden="true"></canvas>
+        <div class="etag mono" dr><span class="etag-dot"></span>🔥🌊 Fire · Water · The Inner Work</div>
+        <h3 class="fp-title serif" dr>Wellness Interface</h3>
+        <p class="fp-sub mono" dr>Jesus · Da Vinci · The Temple · The Sanctuary</p>
+        <p class="fp-body" dr>The micro application. The personal sacred chamber where the individual experiences guided audio journeys, solfeggio frequency healing, and the Lemurian protocols. You cannot build a sovereign world from a depleted body.</p>
+        <div class="fp-quote serif" dr>"Enter the Sanctuary. Realign your frequency with the Lemurian Heart."</div>
+        <p class="fp-focus mono" dr>Focus: Sound · Spirit · Biological Vitality</p>
+        <button class="portal-btn mono" id="btn-void" dr aria-haspopup="dialog"><span>Enter the Sanctuary</span><span class="arr">→</span></button>
       </div>
     </div>
   </section>
 
-  <div class="chamber" id="ch-earth">
-    <div class="ch-bg-grad"></div>
-    <div class="ch-bg-grid"></div>
-    <button class="ascend" id="btn-close-earth">
-      <div class="sun-ring"><span>&uarr;</span></div>
-      <span class="ascend-lbl mono">Ascend to Apex</span>
-    </button>
-    
-    <div class="ch-scroll ch-body">
-      <div class="ch-eye">Laboratory Matrix</div>
-      <h2 class="ch-h2 serif">Bio-Sovereign <em>Engineering</em></h2>
-      <p class="ch-intro">The blueprints of absolute tangible autonomy. Here we unify advanced thermal, biological, and solar systems to decentralize essential resources and build local systems that stand completely sovereign.</p>
-      
-      <div class="ch-grid">
-        <div class="ch-card">
-          <span class="cc-num mono">Hub // 01</span>
-          <h4 class="cc-h4 serif">Bio-Solar Arrays</h4>
-          <p class="cc-p">Developing high-efficiency hybrid structures that unify solar collection with localized biomass conversion units.</p>
-        </div>
-        <div class="ch-card">
-          <span class="cc-num mono">Hub // 02</span>
-          <h4 class="cc-h4 serif">Agricultural Grids</h4>
-          <p class="cc-p">Automated, self-healing closed-loop farming networks that decentralize food production mechanics.</p>
-        </div>
+  <!-- IV. CONVERGENCE -->
+  <section id="conv">
+    <div class="conv-in">
+      <span class="conv-eye mono" dr>The Alchemical Commons · Where the Engineer Meets the Mystic</span>
+
+      <div class="vesica-wrap" dr aria-hidden="true">
+        <svg viewBox="0 0 500 300" fill="none" style="width:100%">
+          <defs>
+            <radialGradient id="eG" cx="30%" cy="50%" r="60%"><stop offset="0%" stop-color="#4A7A3D" stop-opacity=".5"/><stop offset="100%" stop-color="#1A2318" stop-opacity="0"/></radialGradient>
+            <radialGradient id="vG" cx="70%" cy="50%" r="60%"><stop offset="0%" stop-color="#7B5EA7" stop-opacity=".5"/><stop offset="100%" stop-color="#0D0A1A" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#AF9164" stop-opacity=".32"/><stop offset="100%" stop-color="#AF9164" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="180" cy="150" r="130" fill="url(#eG)" stroke="#4A7A3D" stroke-width=".6" stroke-opacity=".5"/>
+          <circle cx="320" cy="150" r="130" fill="url(#vG)" stroke="#7B5EA7" stroke-width=".6" stroke-opacity=".5"/>
+          <path d="M250,26 Q320,150 250,274 Q180,150 250,26Z" fill="url(#gG)" stroke="#AF9164" stroke-width=".9" stroke-opacity=".75"/>
+          <circle cx="180" cy="150" r="80" fill="none" stroke="#4A7A3D" stroke-width=".3" stroke-opacity=".3"/>
+          <circle cx="320" cy="150" r="80" fill="none" stroke="#7B5EA7" stroke-width=".3" stroke-opacity=".3"/>
+          <circle cx="250" cy="150" r="38" fill="none" stroke="#AF9164" stroke-width=".5" stroke-opacity=".65"/>
+          <circle cx="250" cy="150" r="3" fill="#AF9164"/>
+          <text x="108" y="155" fill="#7DB87A" font-family="Space Mono,monospace" font-size="7.5" letter-spacing="2" text-anchor="middle" opacity=".65">BIO-SOVEREIGN</text>
+          <text x="392" y="155" fill="#B8A8D4" font-family="Space Mono,monospace" font-size="7.5" letter-spacing="2" text-anchor="middle" opacity=".65">WELLNESS</text>
+          <text x="250" y="157" fill="#AF9164" font-family="Cormorant Garamond,serif" font-style="italic" font-size="11" text-anchor="middle" opacity=".9">The Harmonic</text>
+        </svg>
+      </div>
+
+      <h2 class="conv-h2 serif" dr>The <em>Synthesis</em><br>was always the point.</h2>
+      <p class="conv-p" dr>The Engineer cannot sustain without the Mystic's renewal. The Mystic cannot actualize without the Engineer's structure. Both chambers feed the same organism — a humanity sovereign in body, mind, and collective will.</p>
+
+      <div class="axioms" dr>
+        <div class="axiom"><span class="ax-num mono">Axiom I</span><h4 class="serif">The Foundation feeds the Interior</h4><p>Physical sovereignty — food security, clean energy — creates the safety in which the spirit can breathe, heal, and ascend.</p></div>
+        <div class="axiom"><span class="ax-num mono">Axiom II</span><h4 class="serif">The Interior empowers the Foundation</h4><p>Vibrational alignment and personal alchemy produce the clarity and will needed to build lasting physical systems.</p></div>
+        <div class="axiom"><span class="ax-num mono">Axiom III</span><h4 class="serif">The Capstone reveals the One</h4><p>Spirituality and science are the same truth expressed at different densities. The Harmonic is the proof of concept.</p></div>
+      </div>
+
+      <button class="join-btn mono" dr><span>Enter the Commons</span><span class="arr">→</span></button>
+    </div>
+  </section>
+
+  <!-- V. FOOTER -->
+  <footer>
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand serif">Manwa Mincha.</div>
+        <p class="ft-tag mono">Engineering the Unseen · LP33 · Artful Balance</p>
+      </div>
+      <div class="ft-links">
+        <a href="#" class="mono">Substack</a>
+        <a href="#" class="mono">X / Twitter</a>
+        <a href="#" class="mono">Instagram</a>
+        <a href="#" class="mono">The Harmonic</a>
       </div>
     </div>
-  </div>
+    <div class="ft-bottom mono">Universal Consciousness · Structural Integrity · Est. MMXXIV</div>
+  </footer>
 
-  <div class="chamber" id="ch-void">
-    <div class="ch-bg-grad"></div>
-    <canvas id="stars-canvas"></canvas>
-    <button class="ascend" id="btn-close-void">
-      <div class="sun-ring"><span>&uarr;</span></div>
-      <span class="ascend-lbl mono">Ascend to Apex</span>
-    </button>
+</div><!-- /pyramid -->
 
-    <div class="ch-scroll ch-body">
-      <div class="ch-eye">Sanctuary Frequency</div>
-      <h2 class="ch-h2 serif">The Metaphysical <em>Grid</em></h2>
-      <p class="ch-intro">Calibrating internal frequencies. Exploring the architecture of human energy matrices, numeric patterns, and tracking the historical alignments of ancestral lineages.</p>
-      
-      <div class="ch-grid">
-        <div class="ch-card">
-          <span class="cc-num mono">Freq // 33</span>
-          <h4 class="cc-h4 serif">Consciousness Expansion</h4>
-          <p class="cc-p">Analyzing how focused thought fields and structural intent shift physical matter and local space conditions.</p>
-        </div>
-        <div class="ch-card" id="ch-void-mentor-card">
-          <span class="cc-num mono">Origin // Void</span>
-          <h4 class="cc-h4 serif">Lemurian Lineages</h4>
-          <p class="cc-p">Tracing historical blueprints of advanced civilizations that understood unified harmonic design properties.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE HARMONIC — Main Script
+   1. Flower of Life + Golden Ratio unfold engine (639Hz pulse)
+   2. Cursor system
+   3. Scroll reveal
+   4. Portal Transition system
+═══════════════════════════════════════════════════════════════════════════ */
+(function() {
+  'use strict';
 
-  <script>
-    // 1. Dynamic Cursor Engine
-    const cur = document.getElementById('cur');
-    const curRing = document.getElementById('cur-ring');
-    
-    document.addEventListener('mousemove', (e) => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top = e.clientY + 'px';
-      
-      curRing.style.left = e.clientX + 'px';
-      curRing.style.top = e.clientY + 'px';
-    });
+  const TAU  = Math.PI * 2;
+  const PHI  = 1.6180339887;
+  // 639 Hz macro-scaled: 1s period feels rhythmic without strobing
+  const HZ639_PERIOD = 1566; // ms (639Hz × 1000 temporal scale)
 
-    const setCursorContext = (addBodyClass) => {
-      document.body.className = addBodyClass;
-    };
+  /* ══ 1. FLOWER OF LIFE ENGINE ════════════════════════════════════════════ */
 
-    document.getElementById('panel-earth').addEventListener('mouseenter', () => setCursorContext('c-earth'));
-    document.getElementById('panel-void').addEventListener('mouseenter', () => setCursorContext('c-void'));
-    document.querySelectorAll('button, a, .ch-card').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('c-big'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('c-big'));
-    });
-    document.getElementById('fork').addEventListener('mouseleave', () => setCursorContext(''));
+  function buildFoLCircles(cx, cy, r) {
+    const c = [];
+    // Ring 0: seed
+    c.push({ x:cx, y:cy, r, ring:0 });
+    // Ring 1: 6 petals at r
+    for(let i=0;i<6;i++) {
+      const a = (TAU/6)*i;
+      c.push({ x:cx+r*Math.cos(a), y:cy+r*Math.sin(a), r, ring:1 });
+    }
+    // Ring 2: 6 at r√3
+    const d2 = r*Math.sqrt(3);
+    for(let i=0;i<6;i++) {
+      const a = (TAU/6)*i + TAU/12;
+      c.push({ x:cx+d2*Math.cos(a), y:cy+d2*Math.sin(a), r, ring:2 });
+    }
+    // Ring 3: 6 at 2r
+    for(let i=0;i<6;i++) {
+      const a = (TAU/6)*i;
+      c.push({ x:cx+2*r*Math.cos(a), y:cy+2*r*Math.sin(a), r, ring:3 });
+    }
+    // Ring 4: 6 at r√7
+    const d4 = r*Math.sqrt(7);
+    for(let i=0;i<6;i++) {
+      const a = (TAU/6)*i + TAU/12;
+      c.push({ x:cx+d4*Math.cos(a), y:cy+d4*Math.sin(a), r, ring:4 });
+    }
+    return c;
+  }
 
-    // 2. Intersectional Reveal System
-    const reveals = document.querySelectorAll('[dr]');
-    const revObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('on');
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => revObs.observe(r));
+  const RING_PAL = [
+    { s:'#AF9164', sa:0.55 },  // 0 gold
+    { s:'#7DB87A', sa:0.42 },  // 1 earth
+    { s:'#B8A8D4', sa:0.38 },  // 2 crystal
+    { s:'#C8AE82', sa:0.32 },  // 3 gold-lt
+    { s:'#7B5EA7', sa:0.28 },  // 4 violet
+  ];
 
-    // 3. Flower of Life Mathematical Renderer
-    const drawFOL = (canvasId, strokeColor) => {
-      const canvas = document.getElementById(canvasId);
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const res = 500;
-      canvas.width = res;
-      canvas.height = res;
-      
-      const r = 40; 
-      ctx.strokeStyle = strokeColor;
-      ctx.lineWidth = 0.5;
-      ctx.globalAlpha = 0.4;
+  function ringUnfoldStart(ring, totalDur) {
+    // φ-staggered: ring r starts at totalDur*(1 - 1/φ^r) * 0.65
+    return totalDur * 0.65 * (1 - 1/Math.pow(PHI, ring));
+  }
+  function ringUnfoldDur(ring, totalDur) {
+    return totalDur*0.3 + ring*totalDur*0.04;
+  }
+  function circleP(ring, elapsed, totalDur) {
+    const s = ringUnfoldStart(ring, totalDur);
+    const d = ringUnfoldDur(ring, totalDur);
+    if(elapsed < s) return 0;
+    const p = Math.min((elapsed-s)/d, 1);
+    return 0.5 - 0.5*Math.cos(p*Math.PI); // sine ease
+  }
 
-      const drawCircle = (x, y) => {
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.stroke();
-      };
+  function drawFoL(canvas, opts) {
+    if(!canvas) return;
+    const { cx, cy, r, theme, elapsed, rotate, pulseT, totalDur } = opts;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
 
-      const cx = res / 2;
-      const cy = res / 2;
+    ctx.clearRect(0,0,W,H);
 
-      for (let i = -4; i <= 4; i++) {
-        for (let j = -4; j <= 4; j++) {
-          const x = cx + i * r * Math.sqrt(3) + (j % 2 === 0 ? 0 : (r * Math.sqrt(3))/2);
-          const y = cy + j * r * 1.5;
-          drawCircle(x, y);
-        }
+    // Theme bg (transparent for overlays)
+    if(opts.drawBg) {
+      ctx.fillStyle = opts.bgColor || '#0A0815';
+      ctx.fillRect(0,0,W,H);
+    }
+
+    // 639Hz glow
+    const p639  = (Math.sin((pulseT/HZ639_PERIOD)*TAU)+1)/2;
+    const p639b = (Math.sin((pulseT/HZ639_PERIOD)*TAU/PHI)+1)/2;
+    const pComb = p639*0.6 + p639b*0.4;
+
+    if(opts.drawBg) {
+      const grd = ctx.createRadialGradient(cx,cy,0,cx,cy,W*0.55);
+      grd.addColorStop(0,   `rgba(175,145,100,${0.07+pComb*0.13})`);
+      grd.addColorStop(0.4, `rgba(123,94,167,${0.03+pComb*0.07})`);
+      grd.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = grd;
+      ctx.fillRect(0,0,W,H);
+    }
+
+    const circles = buildFoLCircles(cx, cy, r);
+
+    // Metatron lines
+    const op = Math.min(elapsed/totalDur, 1);
+    ctx.save();
+    ctx.globalAlpha = op * 0.1;
+    ctx.strokeStyle = '#AF9164';
+    ctx.lineWidth   = 0.35;
+    const ctrs = circles.map(c=>({
+      x: cx+(c.x-cx)*Math.cos(rotate)-(c.y-cy)*Math.sin(rotate),
+      y: cy+(c.x-cx)*Math.sin(rotate)+(c.y-cy)*Math.cos(rotate)
+    }));
+    for(let i=0;i<ctrs.length;i++) {
+      for(let j=i+1;j<ctrs.length;j++) {
+        ctx.beginPath(); ctx.moveTo(ctrs[i].x,ctrs[i].y); ctx.lineTo(ctrs[j].x,ctrs[j].y); ctx.stroke();
       }
-    };
-    drawFOL('fol-canvas-apex', '#AF9164');
+    }
+    ctx.restore();
 
-    // 4. Cosmological Void Starfield Generator
-    const buildStars = () => {
-      const canvas = document.getElementById('stars-canvas');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      const stars = [];
-      for(let i=0; i<120; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.2,
-          alpha: Math.random()
-        });
+    // Draw circles with rotation
+    ctx.save();
+    ctx.translate(cx,cy); ctx.rotate(rotate); ctx.translate(-cx,-cy);
+
+    circles.forEach(c=>{
+      const prog = circleP(c.ring, elapsed, totalDur);
+      if(prog<=0) return;
+      const pal  = RING_PAL[c.ring]||RING_PAL[0];
+      const rp   = (Math.sin((pulseT/HZ639_PERIOD)*TAU + c.ring*(TAU/PHI))+1)/2;
+      const sAlpha = prog*(pal.sa + rp*0.18);
+      const sc   = 0.25 + prog*0.75;
+
+      ctx.save();
+      ctx.translate(c.x,c.y); ctx.scale(sc,sc); ctx.translate(-c.x,-c.y);
+      ctx.beginPath(); ctx.arc(c.x,c.y,c.r,0,TAU);
+      ctx.strokeStyle = pal.s; ctx.globalAlpha = sAlpha; ctx.lineWidth = 0.7+c.ring*0.08; ctx.stroke();
+      ctx.globalAlpha = 1;
+      if(c.ring===0) {
+        ctx.beginPath(); ctx.arc(c.x,c.y,2.5,0,TAU);
+        ctx.fillStyle=`rgba(175,145,100,${prog*(0.55+rp*0.4)})`; ctx.fill();
       }
-      
-      const anim = () => {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        stars.forEach(s => {
-          s.alpha += (Math.random() - 0.5) * 0.04;
-          if(s.alpha < 0) s.alpha = 0;
-          if(s.alpha > 1) s.alpha = 1;
-          ctx.fillStyle = `rgba(184, 168, 212, ${s.alpha})`;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-          ctx.fill();
-        });
-        requestAnimationFrame(anim);
-      };
-      anim();
-    };
-    buildStars();
-    window.addEventListener('resize', buildStars);
+      ctx.restore();
+    });
+    ctx.restore();
 
-    // 5. Portal Navigation Core
-    const setupPortal = (btnOpen, btnClose, chamberId) => {
-      const chamber = document.getElementById(chamberId);
-      const openBtn = document.getElementById(btnOpen);
-      const closeBtn = document.getElementById(btnClose);
+    // Outer rings
+    const outerR = r*3.1;
+    const op2 = Math.min(elapsed/totalDur,1);
+    const outerP = (Math.sin((pulseT/HZ639_PERIOD)*TAU*0.5)+1)/2;
+    ctx.beginPath(); ctx.arc(cx,cy,outerR,0,TAU);
+    ctx.strokeStyle=`rgba(175,145,100,${op2*(0.1+outerP*0.1)})`; ctx.lineWidth=0.5; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,outerR*0.62*PHI,0,TAU);
+    ctx.strokeStyle=`rgba(184,168,212,${op2*(0.06+outerP*0.06)})`; ctx.lineWidth=0.35; ctx.stroke();
+  }
 
-      openBtn.addEventListener('click', () => {
-        chamber.classList.add('open');
-        document.body.classList.add('chamber-open');
-        setTimeout(() => closeBtn.classList.add('show'), 600);
+  /* Canvas instances */
+  function makeFoLInstance(canvas, cfg) {
+    if(!canvas) return null;
+    let startTime=null, rot=0, animId=null;
+    const W=canvas.width, H=canvas.height;
+    const cx=W/2, cy=H/2;
+
+    function frame(ts) {
+      if(!startTime) startTime=ts;
+      const el = ts-startTime;
+      rot += cfg.rotSpeed||0.007;
+      drawFoL(canvas, {
+        cx, cy, r: cfg.r||80,
+        theme: cfg.theme,
+        elapsed: el,
+        rotate: rot,
+        pulseT: el,
+        totalDur: cfg.totalDur||3500,
+        drawBg: cfg.drawBg||false,
+        bgColor: cfg.bgColor,
       });
+      animId = requestAnimationFrame(frame);
+    }
+    animId = requestAnimationFrame(frame);
+    return ()=>cancelAnimationFrame(animId);
+  }
 
-      closeBtn.addEventListener('click', () => {
-        chamber.classList.remove('open');
-        closeBtn.classList.remove('show');
-        document.body.classList.remove('chamber-open');
+  // Apex FoL (large, apex canvas)
+  const apexCanvas = document.getElementById('fol-canvas-apex');
+  if(apexCanvas) {
+    apexCanvas.width  = 700;
+    apexCanvas.height = 700;
+    makeFoLInstance(apexCanvas, { r:88, drawBg:true, bgColor:'transparent', totalDur:4200, rotSpeed:0.005 });
+  }
+
+  // Fork panel FoL (small decorative)
+  makeFoLInstance(document.getElementById('fol-fork-earth'), { r:55, totalDur:3200, rotSpeed:0.006 });
+  makeFoLInstance(document.getElementById('fol-fork-void'),  { r:55, totalDur:3200, rotSpeed:0.007 });
+
+  // Chamber FoL backgrounds
+  makeFoLInstance(document.getElementById('fol-ch-earth'), { r:88, drawBg:false, totalDur:3800, rotSpeed:0.004 });
+  makeFoLInstance(document.getElementById('fol-ch-void'),  { r:88, drawBg:false, totalDur:3800, rotSpeed:0.006 });
+
+  /* ══ 2. STARFIELD (void chamber) ═════════════════════════════════════════ */
+  const starsCanvas = document.getElementById('stars');
+  if(starsCanvas) {
+    let W=0,H=0;
+    function resizeStars(){ W=starsCanvas.width=window.innerWidth; H=starsCanvas.height=window.innerHeight; }
+    resizeStars();
+    window.addEventListener('resize',resizeStars);
+    const stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.1+0.2,a:Math.random(),spd:Math.random()*0.4+0.15}));
+    const sc=starsCanvas.getContext('2d');
+    function drawStars(){
+      sc.clearRect(0,0,W,H);
+      stars.forEach(s=>{
+        s.a+=s.spd*0.006;
+        const op=(Math.sin(s.a)+1)/2;
+        sc.beginPath(); sc.arc(s.x*W,s.y*H,s.r,0,TAU);
+        sc.fillStyle=`rgba(184,168,212,${op*0.55})`; sc.fill();
       });
-    };
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  }
 
-    setupPortal('btn-open-earth', 'btn-close-earth', 'ch-earth');
-    setupPortal('btn-open-void', 'btn-close-void', 'ch-void');
-  </script>
+  /* ══ 3. CURSOR ═══════════════════════════════════════════════════════════ */
+  const cur=document.getElementById('cur'), ring=document.getElementById('cur-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+  (function loop(){ rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+
+  document.querySelectorAll('.fp-earth,#ch-earth').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('c-earth'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('c-earth'));
+  });
+  document.querySelectorAll('.fp-void,#ch-void').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('c-void'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('c-void'));
+  });
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('c-big'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('c-big'));
+  });
+
+  /* ══ 4. SCROLL REVEAL ════════════════════════════════════════════════════ */
+  const revObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ const d=+e.target.dataset.d||0; setTimeout(()=>e.target.classList.add('on'),d); revObs.unobserve(e.target); }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('[dr]').forEach((el,i)=>{ el.dataset.d=(i%6)*110; revObs.observe(el); });
+
+  /* ══ 5. PORTAL TRANSITION ════════════════════════════════════════════════ */
+  const pyramid    = document.getElementById('pyramid');
+  const chEarth    = document.getElementById('ch-earth');
+  const chVoid     = document.getElementById('ch-void');
+  const ascEarth   = document.getElementById('asc-earth');
+  const ascVoid    = document.getElementById('asc-void');
+  let savedScroll  = 0;
+
+  function openChamber(chamber, ascBtn, originPct) {
+    savedScroll = window.scrollY;
+    // Clip from button origin → full screen
+    chamber.style.clipPath = `circle(0% at ${originPct})`;
+    // Force reflow
+    chamber.getBoundingClientRect();
+    requestAnimationFrame(()=>{
+      chamber.classList.add('open');
+      pyramid.style.transition = 'opacity 400ms ease';
+      pyramid.style.opacity    = '0.1';
+      document.body.classList.add('chamber-open');
+      setTimeout(()=>{ ascBtn.classList.add('show'); }, 800);
+      chamber.scrollTop = 0;
+    });
+  }
+
+  function closeChamber(chamber, ascBtn) {
+    ascBtn.classList.remove('show');
+    chamber.classList.remove('open');
+    pyramid.style.opacity = '1';
+    document.body.classList.remove('chamber-open');
+    setTimeout(()=>{ window.scrollTo(0,savedScroll); }, 220);
+  }
+
+  document.getElementById('btn-earth').addEventListener('click', function(){
+    const r = this.getBoundingClientRect();
+    const px = ((r.left+r.width/2)/window.innerWidth*100).toFixed(1)+'% '+
+               ((r.top+r.height/2)/window.innerHeight*100).toFixed(1)+'%';
+    openChamber(chEarth, ascEarth, px);
+  });
+
+  document.getElementById('btn-void').addEventListener('click', function(){
+    const r = this.getBoundingClientRect();
+    const px = ((r.left+r.width/2)/window.innerWidth*100).toFixed(1)+'% '+
+               ((r.top+r.height/2)/window.innerHeight*100).toFixed(1)+'%';
+    openChamber(chVoid, ascVoid, px);
+  });
+
+  ascEarth.addEventListener('click', ()=>closeChamber(chEarth, ascEarth));
+  ascVoid.addEventListener('click',  ()=>closeChamber(chVoid,  ascVoid));
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape'){
+      if(chEarth.classList.contains('open')) closeChamber(chEarth,ascEarth);
+      if(chVoid.classList.contains('open'))  closeChamber(chVoid, ascVoid);
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
-  
-    
